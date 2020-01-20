@@ -1,0 +1,44 @@
+En config settings local es donde está toda la configuración inicial del proyecto. 
+Ahi es donde está que la aplicación de django se llama cride
+
+Siempre es importante revisar local.py y production.py pq ahi es donde está la configuración de los ambientes 
+(local y prod)
+
+Pilas con el archivo local.yml. Ahi también hay cosas que tienen q ver con el nombre del proyecto.
+
+
+==========================================================
+
+Instrucciones Docker:
+
+Para no tener que siempre poner en los comandos -f local.yml escribir el siguiente comando
+export COMPOSE_FILE=local.yml
+
+Que es lo que hay que hacer para que esto corra:
+Crear una imagen (esto según entiendo crea el entorno (baja las dependencias, crea la base de datos, el django, etc))
+y luego correr el docker 
+
+docker-compose build (crea la imagen)
+docker-compose up (correr el docker)
+
+Con el comando docker-compose ps se pueden ver los contenedores que están activos
+
+
+PARA HACER DEBUG DE django
+Hacer up para correr los contenedores
+Para django 
+y luego ejecutarlo en una sesión diferente
+
+docker-compose up 
+docker rm -f cride-platzi_django_1 (nombre del contenedor de django)
+docker-compose run --rm --service-ports django (esto se debe hacer en otro tab del terminal)
+
+
+========================================================
+
+al parecer con esta herramienta se puede crear el template del proyecto
+https://github.com/agconti/cookiecutter-django-rest
+
+
+
+
