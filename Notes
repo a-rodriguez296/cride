@@ -40,8 +40,32 @@ al parecer con esta herramienta se puede crear el template del proyecto
 https://github.com/agconti/cookiecutter-django-rest
 
 
+==================================================
+cada vez que se crea un app interna lo que hay q hacer es crear el folder
+un __init__.py y listo
+
+en el apps.py hay que crear la clase mínimo con name y verbose_name. Son requeridos esos dos
 
 
+Luego en el archivo de configuración, que es config/settings/base.py, hay que agregar el app en la variable  LOCAL_APPS
+Siempre cuando se crea un modelo, hay que crear el folder de migrations con el respectivo __init__.py 
 
+
+=========================================================
+Para el tema de los usuarios customized.
+
+Se crea el modulo como lo cree acá
+Se crea el archivo models y la clase user que hereda de AbstractUser.
+
+Luego el tema es que este user entra en conflicto con la tabla User que django ya tiene creada en la BD 
+
+Por tal motivo lo que hay que hacer es borrar la base de datos (para que se borre la tabla User de django)
+y ejecutar el proyecto de nuevo
+
+PAra borrar hay que parar los servicios 
+docker-compose down
+docker volume -ls (Sirve para listar los volumenes (las bases de datos?))
+docker volume rm XYZ_local_postgres_data (este es el archivo de la base de datos)
+ 
 
 

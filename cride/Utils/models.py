@@ -22,6 +22,6 @@ class CRideModel(models.Model):
 
         ''' Esto es para que no se cree una tabla en la base de datos. Esta es una clase abstracta.'''
         abstract = True
-        get_lastest_by = 'created'
+        get_latest_by = 'created'
         ordering = ['-created', '-modified']
 
