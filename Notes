@@ -64,8 +64,29 @@ y ejecutar el proyecto de nuevo
 
 PAra borrar hay que parar los servicios 
 docker-compose down
-docker volume -ls (Sirve para listar los volumenes (las bases de datos?))
+docker volume ls (Sirve para listar los volumenes (las bases de datos?))
 docker volume rm XYZ_local_postgres_data (este es el archivo de la base de datos)
- 
+
+Luego hay que crear el super user 
+Para ello hay que hacer las migraciones en django 
+docker-compose run --rm django python manage.py makemigrations
+
+
+
+===============================================================
+PAra no tener que hacer una nueva migración (acabo de crear el profile), lo que se puede hacer es 
+borrar la migración actual y hacer de nuevo los pasos de eliminar la base de datos actual,
+makemigrations y migrate
+
+
+lo que se debe hacer es:
+Incluir el nuevo modelo en models/__init__.py 
+hacer down
+borrar el volumen 
+docker-compose run --rm django python manage.py makemigrations
+docker-compose run --rm django python manage.py migrate 
+
+Luego se vuelve a crear el superuser 
+docker-compose run --rm django python manage.py createsuperuser
 
 
