@@ -7,7 +7,7 @@
             "slug_name": "unam-fciencias",
             "is_public": 1,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -20,7 +20,7 @@
             "slug_name": "itesm-csf",
             "is_public": 1,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -33,7 +33,7 @@
             "slug_name": "inventive",
             "is_public": 0,
             "verified": 1,
-            "members_list": 30,
+            "members_limit": 30,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -47,7 +47,7 @@
             "slug_name": "platzi-bog",
             "is_public": 0,
             "verified": 1,
-            "members_list": 120,
+            "members_limit": 120,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -61,7 +61,7 @@
             "slug_name": "platzi-mex",
             "is_public": 0,
             "verified": 1,
-            "members_list": 30,
+            "members_limit": 30,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -75,7 +75,7 @@
             "slug_name": "google-mx",
             "is_public": 0,
             "verified": 1,
-            "members_list": 250,
+            "members_limit": 250,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -89,7 +89,7 @@
             "slug_name": "curso-foto-uva",
             "is_public": 1,
             "verified": 0,
-            "members_list": 25,
+            "members_limit": 25,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -103,7 +103,7 @@
             "slug_name": "fut-chapinero",
             "is_public": 1,
             "verified": 0,
-            "members_list": 40,
+            "members_limit": 40,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -117,7 +117,7 @@
             "slug_name": "grupo-3340-campo",
             "is_public": 1,
             "verified": 0,
-            "members_list": 50,
+            "members_limit": 50,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -131,7 +131,7 @@
             "slug_name": "enfermeria-2018",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -144,7 +144,7 @@
             "slug_name": "unam-fi",
             "is_public": 1,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -157,7 +157,7 @@
             "slug_name": "unam-fm",
             "is_public": 1,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -170,7 +170,7 @@
             "slug_name": "platzi-dev",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -183,7 +183,7 @@
             "slug_name": "platzi-dev-mx",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -196,7 +196,7 @@
             "slug_name": "ibm-santafe",
             "is_public": 0,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -209,7 +209,7 @@
             "slug_name": "p-n-g",
             "is_public": 1,
             "verified": 0,
-            "members_list": 1000,
+            "members_limit": 1000,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"
@@ -223,7 +223,7 @@
             "slug_name": "comunidad-centraal",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -236,7 +236,7 @@
             "slug_name": "centraal-academy",
             "is_public": 1,
             "verified": 1,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -249,7 +249,7 @@
             "slug_name": "edomex",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -262,7 +262,7 @@
             "slug_name": "sat-sfe-week",
             "is_public": 1,
             "verified": 0,
-            "members_list": 0,
+            "members_limit": 0,
             "created": "2019-08-31",
             "modified": "2019-08-31"
         }
@@ -275,7 +275,7 @@
             "slug_name": "sable",
             "is_public": 0,
             "verified": 0,
-            "members_list": 30,
+            "members_limit": 30,
             "is_limited": 1,
             "created": "2019-08-31",
             "modified": "2019-08-31"

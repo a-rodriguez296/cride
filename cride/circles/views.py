@@ -18,7 +18,7 @@ def list_circles(request):
             'slug_name': circle.slug_name,
             'rides_taken': circle.rides_taken,
             'rides_offered': circle.rides_offered,
-            'members_list': circle.members_list
+            'members_limit': circle.members_limit
         })
     
     return Response(data)
