@@ -115,3 +115,13 @@ brew install httpie
 
 con esto ya se pueden hacer requests desde la terminal 
 http localhost:8000/circles/ -b
+
+===============================================================
+Para probar el serializer se puede probar en shell_plus
+
+from cride.circles.serializers import CircleSerializer
+circle = Circle.objects.latest()
+
+from cride.circles.serializers import CircleSerializer
+serializer = CircleSerializer(circle)
+serializer.data
