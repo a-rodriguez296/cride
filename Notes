@@ -99,4 +99,9 @@ Y el MÁS IMPORTANTE crear apps.py (Ver el contenido del archivo)
 
 Es MUY IMPORTANTE actualizar el archivo base.py PILAS
 
+===============================================================
+Para añadir info automaticamente a la DB se debe crear un archivo json con la data 
+y luego se debe ejecutar el archivo loadData con la dirección del archivo donde esta el json 
 
+
+docker-compose run --rm django python manage.py loaddata cride/circles/circles.json
