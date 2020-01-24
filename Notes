@@ -105,3 +105,13 @@ y luego se debe ejecutar el archivo loadData con la dirección del archivo donde
 
 
 docker-compose run --rm django python manage.py loaddata cride/circles/circles.json
+
+===============================================================
+Es muy importante recordar que cuando se instala una extension como
+django rest framework, hay que agregarla en THIRD_PARTY_APPS en config/settings/base.py
+
+para hacer las pruebas más faciles se puede utilizar un librería que se llama httpie
+brew install httpie
+
+con esto ya se pueden hacer requests desde la terminal 
+http localhost:8000/circles/ -b

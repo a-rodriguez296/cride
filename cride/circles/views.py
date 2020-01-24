@@ -1,8 +1,9 @@
-from django.http import HttpResponse, JsonResponse
-from django.core.serializers import serialize
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from cride.circles.models import Circle
 
+@api_view(['GET'])
 def list_circles(request):
     
     #esta sentencia no se evalua en la base de datos. Solo hasta cuando se hace el for
@@ -12,10 +13,12 @@ def list_circles(request):
 
     for circle in public:
         #print(circle)
-        data.append(circle)
-
-    json_data = serialize('json', data)
-    print(json_data)
-    return JsonResponse(json_data, safe=False)
-
-    #return HttpResponse('hola')
+        data.append({
+            'name': circle.name,
+            'slug_name': circle.slug_name,
+            'rides_taken': circle.rides_taken,
+            'rides_offered': circle.rides_offered,
+            'members_list': circle.members_list
+        })
+    
+    return Response(data)
