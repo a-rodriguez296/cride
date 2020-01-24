@@ -89,4 +89,14 @@ docker-compose run --rm django python manage.py migrate
 Luego se vuelve a crear el superuser 
 docker-compose run --rm django python manage.py createsuperuser
 
+===============================================================
+
+Para crear una app nueva lo que hay que hacer es 
+Crear un folder nuevo 
+crear el subfolder migrations con su __init__.py 
+crear el archivo models
+Y el MÁS IMPORTANTE crear apps.py (Ver el contenido del archivo)
+
+Es MUY IMPORTANTE actualizar el archivo base.py PILAS
+
 
