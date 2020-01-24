@@ -22,3 +22,25 @@ def list_circles(request):
         })
     
     return Response(data)
+
+
+@api_view(['POST'])
+def create_circle(request):
+    name = request.data['name']
+    slug_name = request.data['slug_name']
+    about = request.data.get('about', '')
+
+    #Con esto se guarda el objeto en la base de datos
+    circle = Circle.objects.create(name=name, slug_name=slug_name, about=about)
+    data = {
+        'name': circle.name,
+        'slug_name': circle.slug_name,
+        'rides_taken': circle.rides_taken,
+        'rides_offered': circle.rides_offered,
+        'members_limit': circle.members_limit, 
+        'about': circle.about
+    }
+    return Response(data)
+
+
+
