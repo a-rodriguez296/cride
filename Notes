@@ -170,6 +170,44 @@ def create_circle(request):
 
   En el método validate de  UserLoginSerializer, es donde se hace la autenticación del usuario 
 
+ ===============================================================
+
+ Para crear el token 
+
+ instalar en config/settings.py 'rest_framework.authtoken' en THIRD_PARTY_APPS
+ Cuando se instala esta aplicación, hay que hacer una migración.
+
+ El Token como tal se crea en el serializer en la clase create 
+ en la siguiente linea:
+
+ token, created = Token.objects.get_or_create(user=self.context['user'])
+
+ En ese metodo se retorna el user y el token. Vale la pena aclarar que el user viene del contexto
+ que se creo en el método validate
+
+
+ En la clase UserLoginAPIView sucede lo siguiente:
+
+ Primero se valida la info que llega del post con el UserLoginSerializer
+
+ En caso de que haya algun error, se lanza una excepción, serializer.is_valid(raise_exception=True)
+ Luego se llama al método serializer.save(), el cual retorna un user y un token 
+
+ Despues hay que serializar (convertir a JSON) el user, entonces usamos la clase UserModelSerializer
+ que hace eso por nosotros. Esta clase hereda de ModelSerializer entonces lo hace de una.
+
+ Despues simplemente se retorna un diccionario con el user y el token
+
+
+
+
+
+
+
+
+
+
+
 
 
 

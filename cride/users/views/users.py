@@ -1,7 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.response import Response
 
-from cride.users.serializers.users import UserLoginSerializer
+from cride.users.serializers.users import UserLoginSerializer, UserModelSerializer
 
 
 class UserLoginAPIView(APIView):
@@ -10,9 +11,12 @@ class UserLoginAPIView(APIView):
 
         serializer = UserLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        token = serializer.save()
+        print("antes de save")
+        user, token = serializer.save()
+        #Acá ya llega una instancia de la clase model.User
+        print("despues de save")
         data = {
-            'status': 'ok',
+            'user': UserModelSerializer(user).data,
             'token': token
         }
         return Response(data, status=status.HTTP_201_CREATED)
