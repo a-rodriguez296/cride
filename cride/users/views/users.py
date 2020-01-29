@@ -4,8 +4,21 @@ from rest_framework.response import Response
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
-from cride.users.serializers.users import UserLoginSerializer, UserModelSerializer
+from cride.users.serializers.users import (
+    UserLoginSerializer, 
+    UserModelSerializer,
+    ProfileModelSerializer
+    )
 
+
+class SignupAPIView(APIView):
+
+    def post(self, request, *args, **kwargs):
+
+        serializer = ProfileModelSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        profile = serializer.create(validated_data=request.data)
+        return Response(profile, status=status.HTTP_201_CREATED)
 
 class UserLoginAPIView(APIView):
 

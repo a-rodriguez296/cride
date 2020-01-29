@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token 
 
-from cride.users.models import User
+from cride.users.models import User, Profile
 
 class UserModelSerializer(serializers.ModelSerializer):
 
@@ -16,6 +16,36 @@ class UserModelSerializer(serializers.ModelSerializer):
             'email',
             'phone_number'
         )
+
+class ProfileModelSerializer(serializers.ModelSerializer):
+
+    user = UserModelSerializer(required=True)
+
+    class Meta:
+        model = Profile
+        fields = "__all__"
+
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')
+        user = User.objects.create_user(**user_data)
+        profile = Profile(user=user)
+        return profile        
+    '''
+     def valiate(self, data):
+        password = data['password']
+        password_confirmation = data['password_confirmation'] 
+
+        if not password == password_confirmation:
+            raise serializers.ValidationError('Passwords do not match')
+        return data  
+    '''
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        profile = Profile(user=user)
+        profile.save()
+        return profile 
+
 
 
 
