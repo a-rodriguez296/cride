@@ -212,7 +212,23 @@ def create_circle(request):
 
  De haber querido usar un ModelSerializer, me habría tocado hacer un serializer con un nestedobject
  y asi mismo mandar el json de la misma manera, pq profile tiene una relación 1-1 con user 
- 
+
+===============================================================
+
+Se hicieron los cambios para que el usuario no pueda hacer login sin haberse verificado con el correo 
+
+Clase users.py en serializers 
+
+
+Metodo:
+if not user.is_verified:
+            raise serializers.ValidationError('Account has not been verified')
+
+Asimismo, en el serializer del signup cuando creo el user, paso por parametro is_verified=False
+
+
+
+
 
 
 
