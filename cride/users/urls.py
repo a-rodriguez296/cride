@@ -6,11 +6,11 @@ from rest_framework.authtoken import views
 from cride.users.views.users import (
     UserLoginAPIView, 
     CustomAuthToken,
-    SignupAPIView
+    UserSignupAPIView
     )
 
 urlpatterns = [
     path('users/login/', UserLoginAPIView.as_view(), name='login'),
-    path('users/signup/', SignupAPIView.as_view(), name='signup'),
+    path('users/signup/', UserSignupAPIView.as_view(), name='user_signup'),
     url(r'^api-token-auth/', CustomAuthToken.as_view(), name='custom_token'),
 ]

@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, password_validation
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token 
+from rest_framework.validators import UniqueValidator
+from django.core.validators import RegexValidator
 
 from cride.users.models import User, Profile
 
@@ -17,34 +19,47 @@ class UserModelSerializer(serializers.ModelSerializer):
             'phone_number'
         )
 
-class ProfileModelSerializer(serializers.ModelSerializer):
+class UserSignupSerializer(serializers.Serializer):
+    
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
 
-    user = UserModelSerializer(required=True)
+    username = serializers.CharField(
+        validators=[UniqueValidator(queryset=User.objects.all())],
+        min_length=4,
+        max_length=20
+    )
 
-    class Meta:
-        model = Profile
-        fields = "__all__"
+    phone_regex = RegexValidator(
+        regex=r'\+?1?\d{9,15}$',
+        message='Phone number must be entered in the format +9999999999. Up to 15 digits'
+    )
 
-    def create(self, validated_data):
-        user_data = validated_data.pop('user')
-        user = User.objects.create_user(**user_data)
-        profile = Profile(user=user)
-        return profile        
-    '''
-     def valiate(self, data):
-        password = data['password']
-        password_confirmation = data['password_confirmation'] 
+    phone_number = serializers.CharField(validators=[phone_regex])
 
-        if not password == password_confirmation:
-            raise serializers.ValidationError('Passwords do not match')
-        return data  
-    '''
+    password = serializers.CharField(min_length=8, max_length=64)
+    password_confirmation = serializers.CharField(min_length=8, max_length=64)
 
-    def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
-        profile = Profile(user=user)
-        profile.save()
-        return profile 
+    first_name=serializers.CharField(min_length=2, max_length=30)
+    last_name=serializers.CharField(min_length=2, max_length=30)
+
+    def validate(self, data):
+        #Verify that passwords match
+        passwd = data['password']
+        passwd_conf = data['password_confirmation']
+
+        if not passwd == passwd_conf:
+            raise serializers.ValidationError("Passwords do not match")
+
+        password_validation.validate_password(passwd)
+        return data 
+
+    def create(self, data):
+        data.pop('password_confirmation')
+        user = User.objects.create_user(**data)
+        profile = Profile.objects.create(user=user)
+        return user
 
 
 

@@ -198,6 +198,22 @@ def create_circle(request):
 
  Despues simplemente se retorna un diccionario con el user y el token
 
+ ===============================================================
+
+ PAra hacer el SignupAPIView que hice:
+
+ cree el serializer UserSignupSerializer para serializar y validar los datos (ver la clase)
+ Dentro de ese serializer tengo una validate, para verificar que las passwords coincidan.
+
+ En ese serializer también tengo un create que hace lo siguiente:
+ pop del password_confirmation (ya no lo necesito)
+ Creo el user con la data que me llega por parametro
+ y con ese user, creo el Profile (Profile.objects.create(user=user))
+
+ De haber querido usar un ModelSerializer, me habría tocado hacer un serializer con un nestedobject
+ y asi mismo mandar el json de la misma manera, pq profile tiene una relación 1-1 con user 
+ 
+
 
 
 
