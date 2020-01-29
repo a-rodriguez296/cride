@@ -157,3 +157,19 @@ def create_circle(request):
     serializer.is_valid(raise_exception=True)
     circle = serializer.save()
     return Response(CircleSerializer(circle).data)
+
+  ===============================================================
+
+  En este commit estoy haciendo el login para el api 
+
+  Lo primero que hice fue crear el enrutador en config/urls y ponerlo a apuntar a crides/users/urls.py 
+
+  Ahi se hace el manejo para indicar que la vista que va a hacer el manejo es UserLoginAPIView
+
+  Una vez en UserLoginAPIView, se crea el serializer UserLoginSerializer, que es quien se encarga de validar la data 
+
+  En el método validate de  UserLoginSerializer, es donde se hace la autenticación del usuario 
+
+
+
+
